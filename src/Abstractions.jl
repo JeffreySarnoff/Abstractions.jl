@@ -17,6 +17,20 @@ export Abstraction,
 #       AbstractMeasure, AbstractValue, AbstractOperator
 
 abstract type Abstraction end
+
+abstract type AbstractType <: Abstraction end
+abstract type AbstractKind <: Abstraction end
+
+abstract type AbstractQuality  <: Abstraction end
+abstract type AbstractQuantity <: Abstraction end
+
+abstract type AbstractNeighborhood <: Abstraction end
+abstract type AbstractRelationship <: Abstraction end
+
+abstract type AbstractConnection <: Abstraction end
+abstract type AbstractDirection  <: Abstraction end
+
+
 abstract type AbstractTime <: Abstraction end
 
 const SysFloat = Union{Float64, Float32}
@@ -24,6 +38,7 @@ const SysInt   = Union{Int64, Int32}
 const SysUInt  = Union{UInt64, UInt32}
 
 const AnyVec = AbstractVector{T} where T
+
 
 const AnyTimeVec = AbstractVector{T} where T<:TimeType
 const AnyNumericVec = AbstractVector{T} where T<:Number
