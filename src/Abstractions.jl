@@ -37,7 +37,23 @@ const SysFloat = Union{Float64, Float32}
 const SysInt   = Union{Int64, Int32}
 const SysUInt  = Union{UInt64, UInt32}
 
-const AnyVec = AbstractVector{T} where T
+const AnyVec    = AbstractVector{T} where T
+const StringVec = AbstractVector{T} where T<:String
+const NumberVec = AbstractVector{T} where T<:Number
+const RealVec   = AbstractVector{T} where T<:Real
+const FloatVec  = AbstractVector{T} where T<:AbstractFloat
+
+const AnyMat    = AbstractMatrix{T} where T
+const StringMat = AbstractMatrix{T} where T<:String
+const NumberMat = AbstractMatrix{T} where T<:Number
+const RealMat   = AbstractMatrix{T} where T<:Real
+const FloatMat  = AbstractMatrix{T} where T<:AbstractFloat
+
+const AnyArray    = AbstractArray{T,N} where T where T
+const StringArray = AbstractArray{T,N} where T<:String where T
+const NumberArray = AbstractArray{T,N} where T<:Number where T
+const RealArray   = AbstractArray{T,N} where T<:Real where T
+const FloatArray  = AbstractArray{T,N} where T<:AbstractFloat where T
 
 
 const AnyTimeVec = AbstractVector{T} where T<:TimeType
