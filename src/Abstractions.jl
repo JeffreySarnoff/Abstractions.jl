@@ -1,14 +1,82 @@
 module Abstractions
 
-using Base.Dates
-import Base.Dates: TimeType
+import Base.Dates: AbstractTime
+
+abstract type AbstractPlace    end
+
+abstract type AbstractSequence end
+abstract type AbstractMultiSequence <: AbstractSequence end
+
+abstract type AbstractSeries   end
+abstract type AbstractMultiSeries <: AbstractSeries   end
+
 import TimeSeries: AbstractTimeSeries
+abstract type AbstractMultiTimeSeries <: AbstractTimeSeries end
+
+export AbstractPlace,    AbstractTime, 
+       AbstractSequence, AbstractMultiSequence,
+       AbsractTimeSeries, AbsractTimeMultiSeries,
+
+export
+    AnyVec,   AnyMat,    AnyArray,
+    StrVec,   StrMat,    StrArray,
+    NumVec,   NumMat,    NumArray,
+    RealVec,  RealMat,   RealArray,
+    FloatVec, FloatMat,  FloatArray,
+
+
+export 
+    SysFloat, SysInt,   SysUInt,
+    Machloat, MachInt,  MachUInt,
+    FastFloat, FastInt, FastUInt,
+
+const SysFloat = Union{Float64, Float32}
+const SysInt   = Union{Int64, Int32}
+const SysUInt  = Union{UInt64, UInt32}
+
+const MachFloat = Union{Float64, Float32}
+const MachInt   = Union{Int64, Int32, Int16, Int8}
+const MachUInt  = Union{UInt64, UInt32, UInt16, UInt8}
+
+const FastFloat = Float32
+const FastInt   = Int32
+const FastUInt  = UInt32
+
+
+const AnyVec   = AbstractVector{T} where T
+const StrVec   = AbstractVector{T} where T<:String
+const NumVec   = AbstractVector{T} where T<:Number
+const RealVec  = AbstractVector{T} where T<:Real
+const FloatVec = AbstractVector{T} where T<:AbstractFloat
+
+const AnyMat   = AbstractMatrix{T} where T
+const StrMat   = AbstractMatrix{T} where T<:String
+const NumMat   = AbstractMatrix{T} where T<:Number
+const RealMat  = AbstractMatrix{T} where T<:Real
+const FloatMat = AbstractMatrix{T} where T<:AbstractFloat
+
+const AnyArray   = AbstractArray{T,N} where T where N
+const StrArray   = AbstractArray{T,N} where T<:String where N
+const NumArray   = AbstractArray{T,N} where T<:Number where N
+const RealArray  = AbstractArray{T,N} where T<:Real where N
+const FloatArray = AbstractArray{T,N} where T<:AbstractFloat where N
+
+
+
+abstract type AbstractSequence end
+
+abstract type AbstractOrder end
+abstract type PartialOrder <: AbstractOrder end
+abstract type LatticeOrder <: PartialOrder  end
+abstract type TotalOrder   <: LatticeOrder  end
+
+
 
 export Abstraction,
-    AnyVec, AnyArray,
+    AnyVec, AnyMat, AnyArray,
     AbstractTime, AbstractTimeSeries,
-    AnyTimeVec, AnyTimeArray,
-    AnyNumericVec, AnyNumericArray,
+    AnyTimeVec, AnyTimeMat, AnyTimeArray,
+    AnyNumeriVec, AnyNumericArray,
     AnyRealVec, AnyRealArray, 
     AnyFloatVec, AnyFloatArray, 
     SysFloat, SysInt, SysUInt
@@ -32,29 +100,6 @@ abstract type AbstractDirection  <: Abstraction end
 
 
 abstract type AbstractTime <: Abstraction end
-
-const SysFloat = Union{Float64, Float32}
-const SysInt   = Union{Int64, Int32}
-const SysUInt  = Union{UInt64, UInt32}
-
-const AnyVec    = AbstractVector{T} where T
-const StringVec = AbstractVector{T} where T<:String
-const NumberVec = AbstractVector{T} where T<:Number
-const RealVec   = AbstractVector{T} where T<:Real
-const FloatVec  = AbstractVector{T} where T<:AbstractFloat
-
-const AnyMat    = AbstractMatrix{T} where T
-const StringMat = AbstractMatrix{T} where T<:String
-const NumberMat = AbstractMatrix{T} where T<:Number
-const RealMat   = AbstractMatrix{T} where T<:Real
-const FloatMat  = AbstractMatrix{T} where T<:AbstractFloat
-
-const AnyArray    = AbstractArray{T,N} where T where T
-const StringArray = AbstractArray{T,N} where T<:String where T
-const NumberArray = AbstractArray{T,N} where T<:Number where T
-const RealArray   = AbstractArray{T,N} where T<:Real where T
-const FloatArray  = AbstractArray{T,N} where T<:AbstractFloat where T
-
 
 const AnyTimeVec = AbstractVector{T} where T<:TimeType
 const AnyNumericVec = AbstractVector{T} where T<:Number
