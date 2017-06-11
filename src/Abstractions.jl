@@ -6,7 +6,7 @@ import TimeSeries: AbstractTimeSeries
 
 export Abstraction,
     AnyVec, AnyArray,
-    AbstractTimeType, AbstractTimeSeries,
+    AbstractTime, AbstractTimeSeries,
     AnyTimeVec, AnyTimeArray,
     AnyNumericVec, AnyNumericArray,
     AnyRealVec, AnyRealArray, 
@@ -17,6 +17,7 @@ export Abstraction,
 #       AbstractMeasure, AbstractValue, AbstractOperator
 
 abstract type Abstraction end
+abstract type AbstractTime <: Abstraction end
 
 const SysFloat = Union{Float64, Float32}
 const SysInt   = Union{Int64, Int32}
