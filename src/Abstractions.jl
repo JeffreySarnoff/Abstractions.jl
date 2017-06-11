@@ -1,5 +1,8 @@
 module Abstractions
 
+
+
+
 import Base.Dates: AbstractTime
 
 abstract type AbstractPlace    end
@@ -16,13 +19,6 @@ abstract type AbstractMultiTimeSeries <: AbstractTimeSeries end
 export AbstractPlace,    AbstractTime, 
        AbstractSequence, AbstractMultiSequence,
        AbsractTimeSeries, AbsractTimeMultiSeries,
-
-export
-    AnyVec,   AnyMat,    AnyArray,
-    StrVec,   StrMat,    StrArray,
-    NumVec,   NumMat,    NumArray,
-    RealVec,  RealMat,   RealArray,
-    FloatVec, FloatMat,  FloatArray,
 
 
 export 
@@ -41,25 +37,6 @@ const MachUInt  = Union{UInt64, UInt32, UInt16, UInt8}
 const FastFloat = Float32
 const FastInt   = Int32
 const FastUInt  = UInt32
-
-
-const AnyVec   = AbstractVector{T} where T
-const StrVec   = AbstractVector{T} where T<:String
-const NumVec   = AbstractVector{T} where T<:Number
-const RealVec  = AbstractVector{T} where T<:Real
-const FloatVec = AbstractVector{T} where T<:AbstractFloat
-
-const AnyMat   = AbstractMatrix{T} where T
-const StrMat   = AbstractMatrix{T} where T<:String
-const NumMat   = AbstractMatrix{T} where T<:Number
-const RealMat  = AbstractMatrix{T} where T<:Real
-const FloatMat = AbstractMatrix{T} where T<:AbstractFloat
-
-const AnyArray   = AbstractArray{T,N} where T where N
-const StrArray   = AbstractArray{T,N} where T<:String where N
-const NumArray   = AbstractArray{T,N} where T<:Number where N
-const RealArray  = AbstractArray{T,N} where T<:Real where N
-const FloatArray = AbstractArray{T,N} where T<:AbstractFloat where N
 
 
 
