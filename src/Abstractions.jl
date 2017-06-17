@@ -47,7 +47,6 @@ abstract type TotalOrder   <: LatticeOrder  end
 
 export Abstraction,
     AnyVec, AnyMat, AnyArray,
-    AbstractTime, AbstractTimeSeries,
     AnyTimeVec, AnyTimeMat, AnyTimeArray,
     AnyNumericVec, AnyNumericArray,
     AnyRealVec, AnyRealArray, 
