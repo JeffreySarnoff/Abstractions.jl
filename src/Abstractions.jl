@@ -1,8 +1,4 @@
 module Abstractions
-
-
-
-
 import Base.Dates: AbstractTime
 
 abstract type AbstractPlace    end
@@ -24,7 +20,7 @@ export AbstractPlace,    AbstractTime,
 export 
     SysFloat, SysInt,   SysUInt,
     Machloat, MachInt,  MachUInt,
-    FastFloat, FastInt, FastUInt,
+    FastFloat, FastInt, FastUInt
 
 const SysFloat = Union{Float64, Float32}
 const SysInt   = Union{Int64, Int32}
