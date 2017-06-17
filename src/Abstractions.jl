@@ -14,7 +14,7 @@ abstract type AbstractMultiTimeSeries <: AbstractTimeSeries end
 
 export AbstractPlace,    AbstractTime, 
        AbstractSequence, AbstractMultiSequence,
-       AbsractTimeSeries, AbsractTimeMultiSeries,
+       AbsractTimeSeries, AbsractTimeMultiSeries
 
 
 export 
