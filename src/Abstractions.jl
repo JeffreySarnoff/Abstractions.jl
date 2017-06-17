@@ -82,7 +82,7 @@ const AnyFloatVec = AbstractVector{T} where T<:AbstractFloat
 const AnyArray = AbstractArray{T,N} where T where N
 
 const AnyTimeArray  = AbstractArray{T,N} where T<:TimeType where N
-const AnyNumericArray  = AbstractArray{T,N} where T<:Numeric where N
+const AnyNumericArray  = AbstractArray{T,N} where T<:Number where N
 const AnyRealArray  = AbstractArray{T,N} where T<:Real where N
 const AnyFloatArray = AbstractArray{T,N} where T<:AbstractFloat where N
 
