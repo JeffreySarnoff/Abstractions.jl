@@ -1,5 +1,5 @@
 module Abstractions
-import Base.Dates: AbstractTime
+import Base.Dates: AbstractTime, TimeType
 
 abstract type AbstractPlace    end
 
