@@ -49,7 +49,7 @@ export Abstraction,
     AnyVec, AnyMat, AnyArray,
     AbstractTime, AbstractTimeSeries,
     AnyTimeVec, AnyTimeMat, AnyTimeArray,
-    AnyNumeriVec, AnyNumericArray,
+    AnyNumericVec, AnyNumericArray,
     AnyRealVec, AnyRealArray, 
     AnyFloatVec, AnyFloatArray, 
     SysFloat, SysInt, SysUInt
