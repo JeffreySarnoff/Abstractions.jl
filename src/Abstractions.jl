@@ -70,9 +70,6 @@ abstract type AbstractRelationship <: Abstraction end
 abstract type AbstractConnection <: Abstraction end
 abstract type AbstractDirection  <: Abstraction end
 
-
-abstract type AbstractTime <: Abstraction end
-
 const AnyTimeVec = AbstractVector{T} where T<:TimeType
 const AnyNumericVec = AbstractVector{T} where T<:Number
 const AnyRealVec = AbstractVector{T} where T<:Real
