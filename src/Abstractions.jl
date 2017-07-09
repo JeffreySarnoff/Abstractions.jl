@@ -32,21 +32,21 @@ const FastUInt  = UInt32
 
 const AnyInteger  = Union{Signed, Unsigned}
 
-const AbsVector   = V<:AbstractVector{T}  where T
-const AbsMatrix   = V<:AbstractMatrix{T}  where T
-const AbsArray    = V<:AbstractArray{T,N} where T where N
+const AbsVector   = AbstractVector{T}  where T
+const AbsMatrix   = AbstractMatrix{T}  where T
+const AbsArray    = AbstractArray{T,N} where T where N
 
-const RealVector  = V<:AbstractVector{T}  where T<:Real
-const RealMatrix  = V<:AbstractMatrix{T}  where T<:Real
-const RealArray   = V<:AbstractArray{T,N} where T<:Real where N
+const RealVector  = AbstractVector{T}  where T<:Real
+const RealMatrix  = AbstractMatrix{T}  where T<:Real
+const RealArray   = AbstractArray{T,N} where T<:Real where N
 
-const FloatVector = V<:AbstractVector{T}  where T<:AbstractFloat
-const FloatMatrix = V<:AbstractMatrix{T}  where T<:AbstractFloat
-const FloatArray  = V<:AbstractArray{T,N} where T<:AbstractFloat where N
+const FloatVector = AbstractVector{T}  where T<:AbstractFloat
+const FloatMatrix = AbstractMatrix{T}  where T<:AbstractFloat
+const FloatArray  = AbstractArray{T,N} where T<:AbstractFloat where N
 
-const IntVector  = V<:AbstractVector{T}  where T<:AnyInteger
-const IntMatrix  = V<:AbstractMatrix{T}  where T<:AnyInteger
-const IntArray   = V<:AbstractArray{T,N} where T<:AnyInteger
+const IntVector   = AbstractVector{T}  where T<:AnyInteger
+const IntMatrix   = AbstractMatrix{T}  where T<:AnyInteger
+const IntArray    = AbstractArray{T,N} where T<:AnyInteger
 
 
 import Base.Dates: AbstractTime, TimeType
