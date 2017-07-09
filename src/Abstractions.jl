@@ -1,6 +1,54 @@
 __precompile__()
 
 module Abstractions
+
+export 
+    SysFloat, SysInt,   SysUInt,
+    Machloat, MachInt,  MachUInt,
+    FastFloat, FastInt, FastUInt
+
+export AnyInteger,
+       AbsVector,   AbsMatrix,   AbsArray,
+       RealVector,  RealMatrix,  RealArray,
+       FloatVector, FloatMatrix, FloatArray,
+       IntVector,   IntMatrix,   IntArray
+
+export AbstractPlace,    AbstractTime, 
+       AbstractSequence, AbstractMultiSequence,
+       AbsractTimeSeries, AbsractTimeMultiSeries
+
+const SysFloat = Union{Float64, Float32}
+const SysInt   = Union{Int64, Int32, Int16}
+const SysUInt  = Union{UInt64, UInt32, UInt16}
+
+const MachFloat = Union{Float64, Float32}
+const MachInt   = Union{Int64, Int32, Int16, Int8}
+const MachUInt  = Union{UInt64, UInt32, UInt16, UInt8}
+
+const FastFloat = Float32
+const FastInt   = Int32
+const FastUInt  = UInt32
+       
+
+const AnyInteger  = Union{Signed, Unsigned}
+
+const AbsVector   = V<:AbstractVector{T}  where T
+const AbsMatrix   = V<:AbstractMatrix{T}  where T
+const AbsArray    = V<:AbstractArray{T,N} where T where N
+
+const RealVector  = V<:AbstractVector{T}  where T<:Real
+const RealMatrix  = V<:AbstractMatrix{T}  where T<:Real
+const RealArray   = V<:AbstractArray{T,N} where T<:Real where N
+
+const FloatVector = V<:AbstractVector{T}  where T<:AbstractFloat
+const FloatMatrix = V<:AbstractMatrix{T}  where T<:AbstractFloat
+const FloatArray  = V<:AbstractArray{T,N} where T<:AbstractFloat where N
+
+const IntVector  = V<:AbstractVector{T}  where T<:AnyInteger
+const IntMatrix  = V<:AbstractMatrix{T}  where T<:AnyInteger
+const IntArray   = V<:AbstractArray{T,N} where T<:AnyInteger
+
+
 import Base.Dates: AbstractTime, TimeType
 
 abstract type AbstractPlace    end
@@ -13,29 +61,6 @@ abstract type AbstractMultiSeries <: AbstractSeries   end
 
 import TimeSeries: AbstractTimeSeries
 abstract type AbstractMultiTimeSeries <: AbstractTimeSeries end
-
-export AbstractPlace,    AbstractTime, 
-       AbstractSequence, AbstractMultiSequence,
-       AbsractTimeSeries, AbsractTimeMultiSeries
-
-
-export 
-    SysFloat, SysInt,   SysUInt,
-    Machloat, MachInt,  MachUInt,
-    FastFloat, FastInt, FastUInt
-
-const SysFloat = Union{Float64, Float32}
-const SysInt   = Union{Int64, Int32}
-const SysUInt  = Union{UInt64, UInt32}
-
-const MachFloat = Union{Float64, Float32}
-const MachInt   = Union{Int64, Int32, Int16, Int8}
-const MachUInt  = Union{UInt64, UInt32, UInt16, UInt8}
-
-const FastFloat = Float32
-const FastInt   = Int32
-const FastUInt  = UInt32
-
 
 
 abstract type AbstractSequence end
@@ -74,15 +99,6 @@ abstract type AbstractDirection  <: Abstraction end
 
 const AnyTimeVec = AbstractVector{T} where T<:TimeType
 const AnyNumericVec = AbstractVector{T} where T<:Number
-const AnyRealVec = AbstractVector{T} where T<:Real
-const AnyFloatVec = AbstractVector{T} where T<:AbstractFloat
-
-const AnyArray = AbstractArray{T,N} where T where N
-
-const AnyTimeArray  = AbstractArray{T,N} where T<:TimeType where N
-const AnyNumericArray  = AbstractArray{T,N} where T<:Number where N
-const AnyRealArray  = AbstractArray{T,N} where T<:Real where N
-const AnyFloatArray = AbstractArray{T,N} where T<:AbstractFloat where N
 
 const AnyTimeSeq = Union{AnyTimeVec, StepRange{P,Q}} where P<:TimeType where Q
 
