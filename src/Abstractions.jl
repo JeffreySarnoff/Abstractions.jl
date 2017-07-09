@@ -46,7 +46,7 @@ const FloatArray  = AbstractArray{T,N} where T<:AbstractFloat where N
 
 const IntVector   = AbstractVector{T}  where T<:AnyInteger
 const IntMatrix   = AbstractMatrix{T}  where T<:AnyInteger
-const IntArray    = AbstractArray{T,N} where T<:AnyInteger
+const IntArray    = AbstractArray{T,N} where T<:AnyInteger where N
 
 
 import Base.Dates: AbstractTime, TimeType
