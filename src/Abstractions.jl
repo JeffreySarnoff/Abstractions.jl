@@ -12,11 +12,13 @@ export AnyInteger,
        NumVector,   NumMatrix,   NumArray,
        RealVector,  RealMatrix,  RealArray,
        FloatVector, FloatMatrix, FloatArray,
-       IntVector,   IntMatrix,   IntArray
+       IntVector,   IntMatrix,   IntArray,
+       TimeVector,  TimeMatrix,  TimeArray
 
 export AbstractPlace,    AbstractTime, 
        AbstractSequence, AbstractMultiSequence,
        AbsractTimeSeries, AbsractTimeMultiSeries
+
 
 const SysFloat = Union{Float64, Float32}
 const SysInt   = Union{Int64, Int32}
@@ -30,6 +32,9 @@ const FastFloat = Float32
 const FastInt   = Int32
 const FastUInt  = UInt32
        
+
+import Base.Dates: AbstractTime, TimeType
+import TimeSeries: AbstractTimeSeries
 
 const AnyInteger  = Union{Signed, Unsigned}
 
@@ -53,8 +58,10 @@ const IntVector   = AbstractVector{T}  where T<:AnyInteger
 const IntMatrix   = AbstractMatrix{T}  where T<:AnyInteger
 const IntArray    = AbstractArray{T,N} where T<:AnyInteger where N
 
+const TimeVector  = AbstractVector{T}  where T<:AbstractTime
+const TimeMatrix  = AbstractMatrix{T}  where T<:AbstractTime
+const TimeArray   = AbstractArray{T,N} where T<:AbstractTime where N
 
-import Base.Dates: AbstractTime, TimeType
 
 abstract type AbstractPlace    end
 
@@ -64,7 +71,6 @@ abstract type AbstractMultiSequence <: AbstractSequence end
 abstract type AbstractSeries   end
 abstract type AbstractMultiSeries <: AbstractSeries   end
 
-import TimeSeries: AbstractTimeSeries
 abstract type AbstractMultiTimeSeries <: AbstractTimeSeries end
 
 
