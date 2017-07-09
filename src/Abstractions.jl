@@ -9,6 +9,7 @@ export
 
 export AnyInteger,
        AbsVector,   AbsMatrix,   AbsArray,
+       NumVector,   NumMatrix,   NumArray,
        RealVector,  RealMatrix,  RealArray,
        FloatVector, FloatMatrix, FloatArray,
        IntVector,   IntMatrix,   IntArray
@@ -35,6 +36,10 @@ const AnyInteger  = Union{Signed, Unsigned}
 const AbsVector   = AbstractVector{T}  where T
 const AbsMatrix   = AbstractMatrix{T}  where T
 const AbsArray    = AbstractArray{T,N} where T where N
+
+const NumVector   = AbstractVector{T}  where T<:Number
+const NumMatrix   = AbstractMatrix{T}  where T<:Number
+const NumArray    = AbstractArray{T,N} where T<:Number where N
 
 const RealVector  = AbstractVector{T}  where T<:Real
 const RealMatrix  = AbstractMatrix{T}  where T<:Real
