@@ -19,8 +19,8 @@ export AbstractPlace,    AbstractTime,
        AbsractTimeSeries, AbsractTimeMultiSeries
 
 const SysFloat = Union{Float64, Float32}
-const SysInt   = Union{Int64, Int32, Int16}
-const SysUInt  = Union{UInt64, UInt32, UInt16}
+const SysInt   = Union{Int64, Int32}
+const SysUInt  = Union{UInt64, UInt32}
 
 const MachFloat = Union{Float64, Float32}
 const MachInt   = Union{Int64, Int32, Int16, Int8}
