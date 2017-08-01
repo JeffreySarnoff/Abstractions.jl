@@ -17,7 +17,11 @@ export AnyInteger,
 
 export AbstractPlace,    AbstractTime, 
        AbstractSequence, AbstractMultiSequence,
-       AbsractTimeSeries, AbsractTimeMultiSeries
+       AbstractTimeSeries, AbstractTimeMultiSeries
+
+using Base.Dates
+import Base.Dates:AbstractTime
+import Base.TimeSeries: AbstractTimeSeries
 
 
 const SysFloat = Union{Float64, Float32}
