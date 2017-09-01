@@ -1,11 +1,6 @@
-__precompile__()
+ __precompile__()
 
 module Abstractions
-
-export 
-    SysFloat, SysInt,   SysUInt,
-    Machloat, MachInt,  MachUInt,
-    FastFloat, FastInt, FastUInt
 
 export AnyInteger,
        AbsVector,   AbsMatrix,   AbsArray,
@@ -18,23 +13,12 @@ export AnyInteger,
 export AbstractPlace,    AbstractTime, 
        AbstractSequence, AbstractMultiSequence,
        AbstractTimeSeries, AbstractTimeMultiSeries
-
 using Base.Dates
 import Base.Dates:AbstractTime
 import Base.TimeSeries: AbstractTimeSeries
 
 
-const SysFloat = Union{Float64, Float32}
-const SysInt   = Union{Int64, Int32}
-const SysUInt  = Union{UInt64, UInt32}
 
-const MachFloat = Union{Float64, Float32}
-const MachInt   = Union{Int64, Int32, Int16, Int8}
-const MachUInt  = Union{UInt64, UInt32, UInt16, UInt8}
-
-const FastFloat = Float32
-const FastInt   = Int32
-const FastUInt  = UInt32
 
 # from StatsBase.jl/common.jl
 # common utilities
